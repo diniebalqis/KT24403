@@ -9,10 +9,10 @@
 
 int main() {
     
-    fork();
-    fork();
-    fork();
-    fork();
+    fork(); //1 time
+    fork(); //2 times
+    fork(); //3 times
+    fork(); //4 times
     wait(NULL);
     
     printf("\nMy ID: %d \n", getpid());
