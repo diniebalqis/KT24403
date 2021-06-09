@@ -1,0 +1,60 @@
+~$ cat > file1
+The more you take, the more you leave behind. Who am I?
+~$ cat file1
+The more you take, the more you leave behind. Who am I?
+~$ cat > file2
+Footsteps
+~$ cat file1 file2 > file3
+~$ cat file3
+The more you take, the more you leave behind. Who am I?
+Footsteps
+~$ mkdir newDirectory
+~$ ls
+file1  file2  file3  lab10.term  newDirectory
+~$ mv file3 newDirectory
+~$ ls
+file1  file2  lab10.term  newDirectory
+~$ cd newDirectory
+~/newDirectory$ ls
+file3
+~/newDirectory$ cd
+~$ ls -l
+total 3
+-rw-r--r-- 1 user user 56 Jun  9 17:31 file1
+-rw-r--r-- 1 user user 10 Jun  9 17:31 file2
+-rw-r--r-- 1 user user  0 Jun  9 17:30 lab10.term
+drwxr-xr-x 2 user user  3 Jun  9 17:33 newDirectory
+~$ chmod 764 file1
+~$ ls -l
+total 3
+-rwxrw-r-- 1 user user 56 Jun  9 17:31 file1
+-rw-r--r-- 1 user user 10 Jun  9 17:31 file2
+-rw-r--r-- 1 user user  0 Jun  9 17:30 lab10.term
+drwxr-xr-x 2 user user  3 Jun  9 17:33 newDirectory
+~$ chmod 764 file2
+~$ ls -l
+total 3
+-rwxrw-r-- 1 user user 56 Jun  9 17:31 file1
+-rwxrw-r-- 1 user user 10 Jun  9 17:31 file2
+-rw-r--r-- 1 user user  0 Jun  9 17:30 lab10.term
+drwxr-xr-x 2 user user  3 Jun  9 17:33 newDirectory
+~$ cd newDirectory
+~/newDirectory$ ls -l
+total 1
+-rw-r--r-- 1 user user 66 Jun  9 17:32 file3
+~/newDirectory$ chmod u=rwx
+chmod: missing operand after ‘u=rwx’
+Try 'chmod --help' for more information.
+~/newDirectory$ chmod u=rwx file3
+~/newDirectory$ ls -l
+total 1
+-rwxr--r-- 1 user user 66 Jun  9 17:32 file3
+~/newDirectory$ chmod g=r file3
+~/newDirectory$ ls -l
+total 1
+-rwxr--r-- 1 user user 66 Jun  9 17:32 file3
+~/newDirectory$ chmod o-rwx file3
+~/newDirectory$ ls -l
+total 1
+-rwxr----- 1 user user 66 Jun  9 17:32 file3
+~$
